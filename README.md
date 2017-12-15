@@ -1,25 +1,31 @@
-# Framework prototype for [Amazon](https://www.amazon.com/) automation testing.
-This project provides automated test example framework for [Amazon](https://www.amazon.com/)
-to find and order the following items:
-1. Latest Playstation with a most profitable price for your husband.
-2. TV show with a highest review rate for your Mom.
-3. Star Wars Lego for your 9 years old kid.
-4. Montale Wild Pears Parfum (50 milliliters) for your girlfriend.
-5. Red NIKE running shoes (42 EU size) for your boyfriend.
+# _Framework prototype for Amazon automation testing_ 
+
+[![Build Status](https://api.travis-ci.org/lmalakhova/Read-me-example.svg?branch=master)](https://travis-ci.org/lmalakhova/Read-me-example)
+[![codebeat badge](https://codebeat.co/badges/544e8587-4d6d-4924-9a80-dbe1e9ce258e)](https://codebeat.co/projects/github-com-sskorol-qaa-amazon-master)
+[![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://goo.gl/9GLmMZ)
+
+This project provides automated test example framework for [**_Amazon_**](https://www.amazon.com/) to find and order the following items:
+
+1. Latest **_Playstation_** with a most profitable price for your husband.
+2. **_TV show_** with a highest review rate for your Mom.
+3. **_Star Wars Lego_** for your 9 years old kid.
+4. **_Montale Wild Pears Parfum_** (50 milliliters) for your girlfriend.
+5. **_Red NIKE running shoes_** (42 EU size) for your boyfriend.
+
 
 ## 1. Configuration details:
 The project uses **TestNG**  testing framework and **Allure** test report framework to create test execution reports.
 **Gradle** configure project build automation.
 
-To supply test data in a more flexible way use TestNG DataProvider wrapper - [Test Data Supplier](https://github.com/sskorol/test-data-supplier).
+- To supply test data in a more flexible way use TestNG DataProvider wrapper [Test Data Supplier](https://github.com/sskorol/test-data-supplier).
 
-For browser management and taking screenshots in project was used [WebDriver Supplier](https://github.com/sskorol/webdriver-supplier).
+- For browser management and taking screenshots in project was used [WebDriver Supplier](https://github.com/sskorol/webdriver-supplier).
 
-All scenarios tested on  Firefox 57.0  and Chrome 62.0 browsers in **Docker** containers via **Selenoid.**
+- All scenarios tested on  Firefox 57.0  and Chrome 62.0 browsers in **Docker** containers via **Selenoid.**
 
 ### 1.1. Create config/browsers.json configuration file with content:
 
-```
+```json
 {
   "firefox": {
     "default": "57.0",
@@ -41,9 +47,11 @@ All scenarios tested on  Firefox 57.0  and Chrome 62.0 browsers in **Docker** co
   }
 }
 ```
-### 1.2.  To run tests by multi-container Docker use a Docker Compose YAML file to configure your application's services
-**for Windows**:
-```
+
+### 1.2. To run tests by multi-container Docker use a Docker Compose YAML file to configure your application's services:
+**For Windows** use next docker compose YAML file configuration:
+
+```yaml
 version: '3'
 services:
   selenoid:
@@ -56,7 +64,7 @@ services:
       - "/C/your directory for video files:/output" # assumed current dir contains video files located on C: drive
       - "//var/run/docker.sock:/var/run/docker.sock"
     environment:
-      - "OVERRIDE_VIDEO_OUTPUT_DIR=/C/your directory for video files /"
+      - "OVERRIDE_VIDEO_OUTPUT_DIR=/C/your directory for video files/"
     command: ["-limit", "6", "-conf", "/etc/selenoid/browsers.json", "-video-output-dir",
  "/your directory for video files located on C: drive"]
   selenoid-ui:
@@ -69,8 +77,9 @@ services:
     command: ["--selenoid-uri", "http://selenoid:4444"]
 ```
 
-**for Mac and Linux** use next docker compose YAML file configuration:
-```
+**For Mac and Linux** use next docker compose YAML file configuration:
+
+```yaml
 version: '3'
 services:
   selenoid:
@@ -94,6 +103,14 @@ services:
     - "8081:8080"
     command: ["--selenoid-uri", "http://selenoid:4444"]
 ```
-## 2.  Run Configuration details:
-To create Run/Debug Configuration for Gradle use `clean test` Gradle tasks. For Allure report generation use
-`allureReport` and then `allureServe` Gradle tasks.
+
+## 2. Run Configuration details:
+
+To create Run/Debug Configuration for Gradle use: 
+`clean test` gradle task. 
+
+For Allure report generation use:
+`allureReport` gradle task.
+
+For find Allure report on Web use: 
+`allureServe` gradle task.
