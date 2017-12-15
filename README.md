@@ -1,6 +1,5 @@
 # _Framework prototype for Amazon automation testing_ 
 
-[![Build Status](https://api.travis-ci.org/lmalakhova/Read-me-example.svg?branch=master)](https://travis-ci.org/lmalakhova/Read-me-example)
 [![codebeat badge](https://codebeat.co/badges/544e8587-4d6d-4924-9a80-dbe1e9ce258e)](https://codebeat.co/projects/github-com-sskorol-qaa-amazon-master)
 [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://goo.gl/9GLmMZ)
 
