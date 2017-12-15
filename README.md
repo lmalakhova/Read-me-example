@@ -2,18 +2,22 @@
 This project provides automated test example framework for [Amazon](https://www.amazon.com/)
 to find and order the following items:
 1. Latest Playstation with a most profitable price for your husband.
-2.TV show with a highest review rate for your Mom.
-3.Star Wars Lego for your 9 years old kid.
-4.Montale Wild Pears Parfum (50 milliliters) for your girlfriend.
-5.Red NIKE running shoes (42 EU size) for your boyfriend.
+2. TV show with a highest review rate for your Mom.
+3. Star Wars Lego for your 9 years old kid.
+4. Montale Wild Pears Parfum (50 milliliters) for your girlfriend.
+5. Red NIKE running shoes (42 EU size) for your boyfriend.
 
 ## 1. Configuration details:
 The project uses **TestNG**  testing framework and **Allure** test report framework to create test execution reports.
 **Gradle** configure project build automation.
+
 To supply test data in a more flexible way use TestNG DataProvider wrapper - [Test Data Supplier](https://github.com/sskorol/test-data-supplier).
+
 For browser management and taking screenshots in project was used [WebDriver Supplier](https://github.com/sskorol/webdriver-supplier).
-All scenarios tested on  Firefox 57.0  and Chrome 62.0 browsers in **Docker** containers via **Selenoid**:
-###1.1. Create config/browsers.json configuration file with content:
+
+All scenarios tested on  Firefox 57.0  and Chrome 62.0 browsers in **Docker** containers via **Selenoid.**
+
+### 1.1. Create config/browsers.json configuration file with content:
 
 ```
 {
@@ -37,7 +41,7 @@ All scenarios tested on  Firefox 57.0  and Chrome 62.0 browsers in **Docker** co
   }
 }
 ```
-###1.2.  To run tests by multi-container Docker use a Docker Compose YAML file to configure your application?s services
+### 1.2.  To run tests by multi-container Docker use a Docker Compose YAML file to configure your application's services
 **for Windows**:
 ```
 version: '3'
