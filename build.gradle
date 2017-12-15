@@ -1,0 +1,43 @@
+plugins {
+    id 'ru.vyarus.quality' version '2.4.0'
+}
+
+group 'io.github.sskorol'
+version = version
+description 'WebDriver Supplier library, which helps to effectively manage web browser sessions.'
+
+
+apply plugin: 'java'
+apply plugin: 'jacoco'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    jcenter()
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion '4.3.1'
+}
+
+dependencies {
+    compile("org.testng:testng:6.13.1",
+            'org.seleniumhq.selenium:selenium-java:3.8.1'
+    )
+}
+
+test {
+    useTestNG() {
+        suites 'src/test/resources/smoke-suite.xml'
+    }
+}
+
+jacocoTestReport {
+    executionData = files("${buildDir}/jacoco/test.exec")
+    reports {
+        xml.enabled = true
+        xml.destination file("${buildDir}/reports/jacoco/report.xml")
+        html.enabled = true
+        html.destination file("${buildDir}/reports/jacocoHtml")
+    }
+}
