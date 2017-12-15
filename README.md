@@ -24,7 +24,7 @@ The project uses **TestNG**  testing framework and **Allure** test report framew
 
 ### 1.1. Create config/browsers.json configuration file with content:
 
-```json
+```JSON
 {
   "firefox": {
     "default": "57.0",
